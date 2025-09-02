@@ -1,152 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>
-        insta485
-    </title>
-</head>
-<body>
-    <header>
-        <a href="/">
-            <img src="/images/instagram.png" alt="insta485 logo" width="40" height="40">
-        </a>
-        <nav>
+    <!-- "Include <title>insta485</title>" -->
+    <head>
+        <title>
+            insta485
+        </title>
+    </head>
+    <body>
+        <header>
+            <!-- "Include a link to /" -->
+            <a href="/">
+                <img src="/images/instagram.png" width="40" height="40">
+            </a>
+
+            <!-- "Include a link to /explore/ and /users/awdeorio/" -->
             <a href="/explore/">
                 <strong>
                     explore
                 </strong>
             </a>
+
             <a href="/users/awdeorio/">
                 <strong>
                     awdeorio
                 </strong>
             </a>
-        </nav>
-    </header>
+        </header>
 
-    <main id="feed">
-        <!-- <article> is for self-contained posts like forum post, blog post, or news story -->
-        <article class="post">
-            <header class="post-header">
-                <a class="post-owner" href="/users/awdeorio/">
-                    <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio" width="40" height="40" class="profile-pic">
-                    <strong>
-                        awdeorio
-                    </strong>
-                </a>
-
-                <a class="timestamp" href="/posts/3/">
-                    10 minutes ago
-                </a>
-            </header>
-
-            <img class="post-image" src="/uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg" alt="awdeorio's chicken post">
-
-            <div class="likes">
-                1 like
-            </div>
-
-            <p class="caption">
-                <a href="/users/awdeorio/">
-                    <strong>
-                        awdeorio
-                    </strong>
-                </a>
-                #chickensofinstagram
-            </p>
-
-            <section class="comments">
-                <p>
-                    <a href="/users/jflinn">
-                        <strong>
-                            jflinn
-                        </strong>
-                    </a>
-                    I &lt;3 chickens
-                </p>
-                <p>
-                    <a href="/users/michjc/">
-                        <strong>
-                            michjc
-                        </strong>
-                    </a>
-                    Cute overload!
-                </p>
-            </section>
-        </article>
-
-        <article class="post">
-            <header class="post-header">
-                <a class="post-owner" href="/users/jflinn/">
-                    <img src="/uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg" alt="jflinn" width="40" height="40" class="profile-pic">
-                    <strong>
-                        jflinn
-                    </strong>
-                </a>
-
-                <a class="timestamp" href="/posts/2/">
-                    4 hours ago
-                </a>
-            </header>
-
-            <img class="post-image" src="/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" alt="jflinn crossword puzzle">
-
-            <div class="likes">
-                2 likes
-            </div>
-
-            <section class="comments">
-                <p>
+        <main>
+            <article class="post">
+                <header>
+                    <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
                     <a href="/users/awdeorio/">
+                        <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio profile pic" width="40" height="40" class="profile-pic">
                         <strong>
                             awdeorio
                         </strong>
                     </a>
-                    Sick #crossword
-                </p>
-            </section>
-        </article>
+                    
+                    <!-- "Link to the post detail page by clicking on the timestamp" -->
+                    <a href="/posts/3/">
+                        10 minutes ago
+                    </a>
+                </header>
+                
+                <!-- "Actual image corresponding to the post" -->
+                <img src="/uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg" alt="awdeorio chicken post" class="post-image">
 
-        <aritcle class="post">
-            <header class="post-header">
-                <a class="post-owner" href="/users/awdeorio/">
-                    <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio" width="40" height="40" class="profile-pic">
-                    <strong>
-                        awdeorio
-                    </strong>
-                </a>
+                <section class="post-info">
+                    <!-- "Number of likes" -->
+                    <p>
+                        <span class="likes">
+                        1 like
+                        </span>
+                    </p>
 
-                <a class="timestamp" href="/posts/1/">
-                    a day ago
-                </a>
-            </header>
+                    <div class="caption">
+                        <a href="/users/awdeorio/">
+                            <strong>
+                                awdeorio
+                            </strong>
+                        </a>
+                        #chickensofinstagram
+                    </div>
 
-            <img class="post-image" src="/uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg" alt="awdeorio's other chicken post">
+                    <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
+                    <div class="comments">
+                        <p>
+                            <a href="/users/jflinn/">
+                            <strong>
+                                jflinn
+                            </strong>
+                        </a>
+                        I &lt;3 chickens
+                        </p>
+                        <p>
+                            <a href="/users/michjc/">
+                            <strong>
+                                michjc
+                            </strong>
+                        </a>
+                        Cute overload!
+                        </p>
+                    </div>
+                </section>
+            </article>
 
-            <div class="likes">
-                3 likes
-            </div>
-
-            <section class="comments">
-                <p>
-                    <a href="/users/jflinn">
+            <article class="post">
+                <header>
+                    <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
+                    <a href="/users/jflinn/">
+                        <img src="/uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg" alt="jflinn" width="40" height="40" class="profile-pic">
                         <strong>
                             jflinn
                         </strong>
                     </a>
-                    Walking the plank #chickensofinstagram
-                </p>
-                <p>
-                    <a href="/users/awdeorio">
+                    
+                    <!-- "Link to the post detail page by clicking on the timestamp" -->
+                    <a href="/posts/2/">
+                        4 hours ago
+                    </a>
+                </header>
+                
+                <!-- "Actual image corresponding to the post" -->
+                <img src="/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" alt="jflinn crossword puzzle" class="post-image">
+
+                <section class="post-info">
+                    <!-- "Number of likes" -->
+                    <p>
+                        <span class="likes">
+                        2 likes
+                        </span>
+                    </p>
+
+                    <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
+                    <div class="comments">
+                        <p>
+                            <a href="/users/awdeorio/">
+                            <strong>
+                                awdeorio
+                            </strong>
+                        </a>
+                        Sick #crossword
+                        </p>
+                    </div>
+                </section>
+            </article>
+
+            <article class="post">
+                <header>
+                    <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
+                    <a href="/users/awdeorio/">
+                        <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio" width="40" height="40" class="profile-pic">
                         <strong>
                             awdeorio
                         </strong>
                     </a>
-                    This was after trying to teach them to do a #crossword
-                </p>
-            </section>
-        </aritcle>
-    </main>
-</body>
-</html> 
+                    
+                    <!-- "Link to the post detail page by clicking on the timestamp" -->
+                    <a href="/posts/1/">
+                        a day ago
+                    </a>
+                </header>
+                
+                <!-- "Actual image corresponding to the post" -->
+                <img src="/uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg" alt="awdeorio's other chicken post" class="post-image">
+
+                <section class="post-info">
+                    <!-- "Number of likes" -->
+                    <p>
+                        <span class="likes">
+                        3 likes
+                        </span>
+                    </p>
+
+                    <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
+                    <div class="comments">
+                        <p>
+                            <a href="/users/jflinn/">
+                                <strong>
+                                    jflinn
+                                </strong>
+                            </a>
+                            Walking the plank #chickensofinstagram
+                        </p>
+
+                        <p>
+                            <a href="/users/awdeorio/">
+                                <strong>
+                                    awdeorio
+                                </strong>
+                            </a>
+                            This was after trying to teach them to do a #crossword
+                        </p>
+                    </div>
+                </section>
+            </article>
+        </main>
+    </body>
+</html>
