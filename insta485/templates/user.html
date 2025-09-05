@@ -20,9 +20,9 @@
                 </strong>
             </a>
 
-            <a href="/users/awdeorio/">
+            <a href="/users/{{ logname }}/">
                 <strong>
-                    awdeorio
+                    {{ logname }}
                 </strong>
             </a>
         </header>
@@ -30,46 +30,61 @@
         <main>
             <!-- "username" -->
             <h2>
-                awdeorio
+                {{ username }}
             </h2>
 
             <!-- "Relationship" -->
             <p>
-                <!-- "Number of posts" -->
-                2 posts
+                <!-- "Blank if logged in user == user_url_slug" -->
+                {% if username == logname %}
+                
+                <!-- "“following” if the logged in user is following user_url_slug" -->
+                {% elif logname_follows_username %}
+                following
 
-                <!-- "Link to /users/awdeorio/followers/" -->
-                <a href="/users/awdeorio/followers/">
+                <!-- "“not following” if the logged in user is not following user_url_slug" -->
+                {% else %}
+                not following
+
+                {% endif %}
+            </p>
+
+            <p>
+                <!-- "Number of posts, with correct English" -->
+                {{ total_posts }} post{{ "s" if total_posts != 1 else "" }}
+
+                <!-- "Link to /users/<user_url_slug>/followers/" -->
+                <a href="/users/{{ username }}/followers/">
+                    <!-- "Number of followers, with correct English" -->
                     <strong>
-                        2 followers
+                        {{ followers }} follower{{ "s" if followers != 1 else "" }}
                     </strong>
                 </a>
 
-                <!-- "Link to /users/awdeorio/following/" -->
-                <a href="/users/awdeorio/following/">
+                <!-- "Link to /users/<user_url_slug>/following/" -->
+                <a href="/users/{{ username }}/following/">
+                    <!-- "Number following" -->
                     <strong>
-                        2 following
+                        {{ following }}
+                        following
                     </strong>
                 </a>
             </p>
 
             <!-- "Name" -->
             <p>
-                Andrew DeOrio
+                {{ fullname }}
             </p>
 
             <section class="user-posts">
                 <!-- "A small image for each post" -->
+                {% for post in posts %}
 
                 <!-- "Clicking on the first image links to /posts/1/" -->
-                <a href="/posts/1/">
-                    <img src="/uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg" alt="awdeorio's recent post">
+                <a href="/posts/{{ post.postid}}/">
+                    <img src="{{ post.img_url }}">
                 </a>
-
-                <!-- "Clicking on the second image links to /posts/3/" -->
-                <a href="/posts/3/">
-                    <img src="/uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg" alt="awdeorio's earliest post">
-                </a>
+                {% endfor %}
             </section>
         </main>
     </body>
