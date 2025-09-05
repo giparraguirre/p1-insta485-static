@@ -48,10 +48,10 @@
                 <!-- "Relationship" -->
 
                 <!-- "Blank if logged in user == user_url_slug" -->
-                {% if username == logname %}
+                {% if follower.username == logname %}
                 
                 <!-- "“following” if the logged in user is following user_url_slug" -->
-                {% elif logname_follows_username %}
+                {% elif follower.logname_follows_username %}
                 following
 
                 <!-- "“not following” if the logged in user is not following user_url_slug" -->
@@ -62,4 +62,5 @@
             </article>
             {% endfor %}
         </main>
+    </body>
 </html>

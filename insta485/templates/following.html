@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- "Include <title>insta485</title>" -->
+    <head>
+        <title>
+            insta485
+        </title>
+    </head>
+    <body>
+        <header>
+            <!-- "Include a link to /" -->
+            <a href="/">
+                <img src="/images/instagram.png" alt="instagram logo" width="40" height="40">
+            </a>
+
+            <!-- "Include a link to /explore/ and /users/awdeorio/" -->
+            <a href="/explore/">
+                <strong>
+                    explore
+                </strong>
+            </a>
+
+            <a href="/users/{{ logname }}/">
+                <strong>
+                    {{ logname }}
+                </strong>
+            </a>
+        </header>
+
+        <main>
+            <h1>
+                Following
+            </h1>
+
+            {% for follow in following %}
+            <article class="user">
+                <!-- "Username, with link to /users/<username>/" -->
+                <a href="/users/{{ follow.username }}/">
+                    {{ follow.username }}
+                </a>
+
+                <img src="{{ follow.user_img_url }}" width="40" height="40">
+
+                <strong>
+                    {{ follow.username }}
+                </strong>
+
+                <!-- "Relationship" -->
+
+                <!-- "Blank if logged in user == user_url_slug" -->
+                {% if follow.username == logname %}
+                
+                <!-- "“following” if the logged in user is following user_url_slug" -->
+                {% elif follow.logname_follows_username %}
+                following
+
+                <!-- "“not following” if the logged in user is not following user_url_slug" -->
+                {% else %}
+                not following
+
+                {% endif %}
+            </article>
+            {% endfor %}
+        </main>
+    </body>
+</html>
