@@ -1,0 +1,23 @@
+
+#!/bin/bash
+#
+# insta485run
+#
+# Clean, build and start server
+#
+# Gianmarco Iparraguirre <gianmarc@umich.edu>
+
+# Stop on errors, print commands
+ 
+set -Eeuo pipefail
+set -x
+
+# Clean
+rm -rf insta485_html
+
+# Build
+insta485generator insta485 -o insta485_html
+
+# Serve
+cd insta485_html
+python3 -m http.server 8000

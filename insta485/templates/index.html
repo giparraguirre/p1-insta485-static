@@ -20,162 +20,58 @@
                 </strong>
             </a>
 
-            <a href="/users/awdeorio/">
+            <a href="/users/{{ logname }}/">
                 <strong>
-                    awdeorio
+                    {{ logname }}
                 </strong>
             </a>
         </header>
 
         <main>
+            {% for post in posts %}
             <article class="post">
                 <header>
                     <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
-                    <a href="/users/awdeorio/">
-                        <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio profile pic" width="40" height="40" class="profile-pic">
+                    <a href="/users/{{ post.owner }}/">
+                        <img src="{{ post.owner_img_url }}" alt="{{ post.owner }} profile pic" width="40" height="40" class="profile-pic">
                         <strong>
-                            awdeorio
+                            {{ post.owner }}
                         </strong>
                     </a>
                     
                     <!-- "Link to the post detail page by clicking on the timestamp" -->
-                    <a href="/posts/3/">
-                        10 minutes ago
+                    <a href="/posts/{{ post.postid }}/">
+                        {{ post.timestamp }}
                     </a>
                 </header>
                 
                 <!-- "Actual image corresponding to the post" -->
-                <img src="/uploads/9887e06812ef434d291e4936417d125cd594b38a.jpg" alt="awdeorio chicken post" class="post-image">
+                <img src="{{ post.img_url }}" alt="{{ post.owner }} chicken post" class="post-image">
 
                 <section class="post-info">
                     <!-- "Number of likes" -->
                     <p>
                         <span class="likes">
-                        1 like
-                        </span>
-                    </p>
-
-                    <div class="caption">
-                        <a href="/users/awdeorio/">
-                            <strong>
-                                awdeorio
-                            </strong>
-                        </a>
-                        #chickensofinstagram
-                    </div>
-
-                    <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
-                    <div class="comments">
-                        <p>
-                            <a href="/users/jflinn/">
-                            <strong>
-                                jflinn
-                            </strong>
-                        </a>
-                        I &lt;3 chickens
-                        </p>
-                        <p>
-                            <a href="/users/michjc/">
-                            <strong>
-                                michjc
-                            </strong>
-                        </a>
-                        Cute overload!
-                        </p>
-                    </div>
-                </section>
-            </article>
-
-            <article class="post">
-                <header>
-                    <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
-                    <a href="/users/jflinn/">
-                        <img src="/uploads/505083b8b56c97429a728b68f31b0b2a089e5113.jpg" alt="jflinn" width="40" height="40" class="profile-pic">
-                        <strong>
-                            jflinn
-                        </strong>
-                    </a>
-                    
-                    <!-- "Link to the post detail page by clicking on the timestamp" -->
-                    <a href="/posts/2/">
-                        4 hours ago
-                    </a>
-                </header>
-                
-                <!-- "Actual image corresponding to the post" -->
-                <img src="/uploads/ad7790405c539894d25ab8dcf0b79eed3341e109.jpg" alt="jflinn crossword puzzle" class="post-image">
-
-                <section class="post-info">
-                    <!-- "Number of likes" -->
-                    <p>
-                        <span class="likes">
-                        2 likes
+                            {{ post.likes }} like{{ "s" if post.likes != 1 else "" }}
                         </span>
                     </p>
 
                     <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
                     <div class="comments">
+                        {% for comment in post.comments %}
                         <p>
-                            <a href="/users/awdeorio/">
-                            <strong>
-                                awdeorio
-                            </strong>
-                        </a>
-                        Sick #crossword
-                        </p>
-                    </div>
-                </section>
-            </article>
-
-            <article class="post">
-                <header>
-                    <!-- "Link to the post owner’s page /users/<POST_OWNER>/ by clicking on their username or profile picture" -->
-                    <a href="/users/awdeorio/">
-                        <img src="/uploads/e1a7c5c32973862ee15173b0259e3efdb6a391af.jpg" alt="awdeorio" width="40" height="40" class="profile-pic">
-                        <strong>
-                            awdeorio
-                        </strong>
-                    </a>
-                    
-                    <!-- "Link to the post detail page by clicking on the timestamp" -->
-                    <a href="/posts/1/">
-                        a day ago
-                    </a>
-                </header>
-                
-                <!-- "Actual image corresponding to the post" -->
-                <img src="/uploads/122a7d27ca1d7420a1072f695d9290fad4501a41.jpg" alt="awdeorio's other chicken post" class="post-image">
-
-                <section class="post-info">
-                    <!-- "Number of likes" -->
-                    <p>
-                        <span class="likes">
-                        3 likes
-                        </span>
-                    </p>
-
-                    <!-- "Link to the comment owner’s page /users/<COMMENT_OWNER>/ by clicking on their username" -->
-                    <div class="comments">
-                        <p>
-                            <a href="/users/jflinn/">
+                            <a href="/users/{{ comment.owner }}/">
                                 <strong>
-                                    jflinn
+                                    {{ comment.owner }}
                                 </strong>
                             </a>
-                            Walking the plank #chickensofinstagram
+                            {{ comment.text }}
                         </p>
-
-                        <p>
-                            <a href="/users/awdeorio/">
-                                <strong>
-                                    awdeorio
-                                </strong>
-                            </a>
-                            This was after trying to teach them to do a #crossword
-                        </p>
+                        {% endfor %}
                     </div>
                 </section>
             </article>
+            {% endfor %}
         </main>
     </body>
 </html>
