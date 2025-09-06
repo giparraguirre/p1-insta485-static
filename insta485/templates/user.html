@@ -82,7 +82,7 @@
 
                 <!-- "Clicking on the first image links to /posts/1/" -->
                 <a href="/posts/{{ post.postid}}/">
-                    <img src="{{ post.img_url }}">
+                    <img src="{{ post.img_url }}" alt="{{ post.img_url }} image">
                 </a>
                 {% endfor %}
             </section>

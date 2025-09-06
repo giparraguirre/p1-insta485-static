@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- "Include <title>insta485</title>" -->
+    <head>
+        <title>
+            insta485
+        </title>
+    </head>
+    <body>
+        <header>
+            <!-- "Include a link to /" -->
+            <a href="/">
+                <img src="/images/instagram.png" alt="instagram logo" width="40" height="40">
+            </a>
+
+            <!-- "Include a link to /explore/ and /users/awdeorio/" -->
+            <a href="/explore/">
+                <strong>
+                    explore
+                </strong>
+            </a>
+
+            <a href="/users/{{ logname }}/">
+                <strong>
+                    {{ logname }}
+                </strong>
+            </a>
+        </header>
+
+        <main>
+            <article class="post">
+                <header>
+                    <a href="/users/{{ owner }}/">
+                        <img src="{{ owner_img_url }}" alt="{{ owner }} profile pic" width="40" height="40">
+                        <strong>
+                            {{ owner }}
+                        </strong>
+                    </a>
+
+                    <!-- "Link to the post detail page by clicking on the timestamp" -->
+                    <a href="/posts/{{ postid }}/">
+                        {{ timestamp }}
+                    </a>
+                </header>
+
+                <img src="{{ img_url }}" alt="{{ owner }} post">
+
+                <section class="post-info">
+                    <p>
+                        <span class="likes">
+                            {{ likes }} like{{ "s" if likes != 1 else "" }}
+                        </span>
+                    </p>
+
+                    <div class="comments">
+                        {% for comment in comments %}
+                        <p>
+                            <a href="/users/{{ comment.owner }}/">
+                                <strong>
+                                    {{ comment.owner }}
+                                </strong>
+                            </a>
+                            {{ comment.text }}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </section>
+            </article>
+        </main>
+    </body>
+</html>

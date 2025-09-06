@@ -28,7 +28,24 @@
         </header>
 
         <main>
-            
+            <h1>
+                Discover People
+            </h1>
+
+            {% for f in not_following %}
+            <article class="user">
+                <!-- "Username, with link to /users/<username>/" -->
+                <a href="/users/{{ f.username }}/">
+                    {{ f.username }}
+                </a>
+
+                <img src="{{ f.user_img_url }}" alt="{{ f.username}} image" width="40" height="40">
+
+                <strong>
+                    {{ f.username }}
+                </strong>
+            </article>
+            {% endfor %}
         </main>
     </body>
 </html>
